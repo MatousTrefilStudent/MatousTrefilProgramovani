@@ -1,5 +1,5 @@
 Operation,Output
-+,5.0
--,5.0
-*,0.0
-/,"Dìlení nulou, nelze provést operaci"
++,3.0
+-,-1.0
+*,2.0
+/,0.5
