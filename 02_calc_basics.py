@@ -6,6 +6,7 @@ os.system('cls')
 
 
 
+
 while True:
     try:
         firstNumber= float(input("Prvni cislo:\t"))
@@ -23,11 +24,17 @@ if secondNumber==0:
 else:
     print(str(firstNumber)+"\t/\t"+str(secondNumber)+"\t=\t"+str(firstNumber/secondNumber))
 
-if input("Chcete uložit výsledky do csv souboru? ANO/NE\t") == "ANO":
+inputWriteCSV=""
+
+while inputWriteCSV != "ANO" and  inputWriteCSV != "ANO":
+
+    inputWriteCSV = input("Chcete uložit výsledky do csv souboru? ANO/NE\t")
+
+if inputWriteCSV == "ANO":
     with open('calc_basics_vysledky.csv', 'w', newline='') as file:
         writer=csv.writer(file)
 
-        writer.writerow(["Operation","Output"])
+        writer.writerow(["Operace","Produkt"])
 
         writer.writerow(["+",firstNumber+secondNumber])
         writer.writerow(["-",firstNumber-secondNumber])
