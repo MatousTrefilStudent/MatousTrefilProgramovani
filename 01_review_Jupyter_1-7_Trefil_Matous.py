@@ -4,7 +4,8 @@
 01_review_Jypyter_1-7.py
 Vypracujte bez použití AI a připojení k netu. 12 úkolů.
 
-VYPRACOVAL/A: 
+VYPRACOVAL/A: Matoš Trefil
+DATUM: 2024-10-09
 -----------------------------------------------------------------
 """
 
@@ -20,13 +21,16 @@ os.system("cls")
     # b) používat dělení a vracet jak běžné, tak celočíselné dělení (quotient, integer_division)
 
 # Načtení čísel
-
+a=float(input("Zadej první číslo: "))
+b=float(input("Zadej druhé číslo: "))
 
 # a) Sčítání
 
+print(a,"+",b,"=",str(a+b))
 
 # b) Dělení a celočíselné dělení
-
+print(a,"/",b,"=",str(a/b))
+print(a,"//",b,"=",str(int(a/b)))
 
 
 ##############################################################
@@ -37,19 +41,25 @@ os.system("cls")
 
 # Načtení čísla
 
+a = float(input("Zadej číslo: "))
 
 # a) Třetí odmocnina
 
+print("Třetí odmocnina čísla",a,"je",a**(1/3))
 
 # b) Druhá odmocnina
 
-
+print("Druhá odmocnina čísla",a,"je",a**(1/2))
 
 ##############################################################
 # 3. Úkol: Práce s proměnnými
 # Zadejte proměnnou 'my_savings' a přiřaďte jí hodnotu od uživatele (např. 200)
 # Poté vypočítejte, kolik budete mít peněz po přidání 10% úroků, které si uložíte do proměnné 'my_interest'.
 
+my_savings = float(input("Zadej částku, kterou máš našetřenou: "))
+my_interest = .1
+
+print("Po přidání 10% úroků budete mít:",my_savings*(1+my_interest))
 
 
 ##############################################################
@@ -61,13 +71,19 @@ os.system("cls")
 
 # a) Načtení řetězců
 
+a = input("Zadej první řetězec: ")
+b = input("Zadej druhý řetězec: ")
 
 # b) Zkontrolujte délku řetězců
 
+if len(a) == len(b):
+    print("Oba řetězce jsou stejné délky.")
+else:
+    print("Řetězce nejsou stejné délky.")
 
 # c) Spojení řetězců
 
-
+print("Spojené řetězce:", a + b)
 
 ##############################################################
 # 5. Úkol: Práce s cykly
@@ -78,10 +94,16 @@ os.system("cls")
 
 # Načtení čísla
 
+a = int(input("Zadej číslo: "))
 
 # b) Výpis čísel
 
-
+for i in range(1, a+1):
+    print(i,end="")
+    if i % 5 == 0:
+        print("\tPátý krok!")
+    else:
+        print("")
 
 ##############################################################
 # 6. Úkol: Slovníky v Pythonu
@@ -92,16 +114,23 @@ os.system("cls")
 
 # a) Vytvoření slovníku
 
+person = {}
 
 # b) Načtení údajů od uživatele
 
+name = input("Zadej jméno: ")
+age = float(input("Zadej věk: "))
+city = input("Zadej město: ")
 
 # Přidání údajů do slovníku
 
+person["name"] = name
+person["age"] = age
+person["city"] = city
 
 # c) Výpis slovníku
 
-
+print(person)
 
 ##############################################################
 # 7. Úkol: Použití f-string
@@ -111,13 +140,16 @@ os.system("cls")
 
 # Načtení čísel
 
+result =  float(input("Zadej výsledek: "))
+score = float(input("Zadej skóre: "))
 
 # a) Použití f-string
 
+print(f"Výsledek je {result}\n Skóre je {score}")
 
 # b) Použití f-string s přesností na 2 desetinná místa
 
-
+print(f"Výsledek je {round(result,2)}\n Skóre je {round(score,2)}")
 
 ##############################################################
 # 8. Úkol: Vytváření seznamů a indexování
@@ -128,13 +160,17 @@ os.system("cls")
 
 # a) Vytvoření seznamu
 
+my_list = []
+for i in range(5):
+    my_list.append(input("Zadej prvek seznamu: "))
 
 # b) Třetí prvek
 
+print("3. Prvek:\t",my_list[2])
 
 # c) Poslední dva prvky
 
-
+print("Poslední dva prvky:\t",my_list[-2:])
 
 ##############################################################
 # 9. Úkol: Základní metody seznamu
@@ -145,13 +181,19 @@ os.system("cls")
 
 # a) Vytvoření seznamu a přidání nového prvku
 
+my_list = ["a", "z", "c"]
+my_list.append("e")
+
+print(my_list)
 
 # b) Odstranění prvku na zvoleném indexu
 
+my_list.pop(int(input("index prvku k odstranění:\t")))
 
 # c) Seřazení seznamu
 
-
+my_list.sort()
+print(my_list)
 
 ##############################################################
 # 10. Úkol: Vytvoření tuple a indexování
@@ -162,13 +204,17 @@ os.system("cls")
 
 # a) Vytvoření tuple
 
+array = [input("Zadej prvek tuple: ") for i in range(3)]
+
+my_tuple = (array[0], array[1], array[2])
 
 # b) První prvek
 
+print("1.:\t",my_tuple[0])
 
 # c) Poslední prvek
 
-
+print("-1:\t",my_tuple[-1])
 
 ##############################################################
 # 11. Úkol: Základní metody pro tuple
@@ -179,10 +225,16 @@ os.system("cls")
 
 # a) Vytvoření tuple a použití metody count()
 
+my_tuple = (1, 2, 3, 2, 4, 2, 5)
+
+element = int(input("Zadej prvek, jehož výskyty chceš spočítat:\t"))
+
+count = my_tuple.count(element)
+print("Počet výskytů:\t",count)
 
 # b) Použití metody index()
 
-
+print("Místo výskytu:\t"+str(my_tuple.index(element)))
 
 ##############################################################
 # 12. Úkol: Neměnnost tuple
@@ -192,10 +244,18 @@ os.system("cls")
 
 # a) Vytvoření tuple
 
+tuple = (1, 2, 3)
 
 # b) Pokus o změnu prvku
 
-
+while True:
+    try:
+        tuple[0] = 5
+    except TypeError:
+        print("Chyba: Tuple je neměnný, nelze měnit jeho prvky.")
+        break
+    else:
+        break
 
 ##############################################################
 
