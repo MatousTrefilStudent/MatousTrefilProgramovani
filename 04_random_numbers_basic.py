@@ -67,17 +67,14 @@ def calculate(example):
     return array[0]
 
 if __name__ == "__main__":
-    for i in range(1,10):
-        print(generate_example_by_difficulty(i))
-    """while True:
+    difficulty = 1
+    while True:
+        number=generate_example_by_difficulty(difficulty)
 
-        example= generate_example()
-
-        for i in example[0]:
+        for i in number[0]:
             print(str(i)+"\t",end="")
-        print("=", end="\t")
 
-        result = ""
+        print("=\t",end="")
 
         while True:
             result = input("")
@@ -85,12 +82,17 @@ if __name__ == "__main__":
                 result = float(result)
                 break
             except ValueError:
-                print(f"'{result}' is not a number, try again")
+                print(f"'{result}' není číslo, zkus to znova")
         
-        if round(result,3) == round(example[1],3):
-            print("správně")
+        if round(result,3) == round(number[1],3):
+            difficulty+=1
+            print("správně, obtížnost je zvýšena na: "+str(difficulty))
         else:
-            print("špatně")"""
+            if difficulty>1:
+                difficulty-=1
+            print("špatně, obtížnost je snížena na: "+str(difficulty))
+
+    
 
         
 
