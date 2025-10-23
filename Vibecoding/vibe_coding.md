@@ -3,6 +3,8 @@
 Vibecoding je způsob vývoje softwaru, při kterém je část kódu generována umělou inteligencí.  
 Hlavním cílem je efektivnější tvorba programového kódu prostřednictvím spolupráce mezi vývojářem a nástroji umělé inteligence.
 
+![Example of adding code](pics/image.png)
+![Example of adding description](pics/image01.png)
 
 ## Způsob práce
 
