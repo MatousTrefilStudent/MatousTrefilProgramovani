@@ -17,7 +17,6 @@ import os
 # Vymazání obrazovky terminálu (Windows)
 os.system("cls")
 
-
 ##############################################################
 ### Základní verze - vždy stejná odpověď
 

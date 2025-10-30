@@ -1,15 +1,14 @@
 # Vibecoding
+Vytvořil: Matouš Trefil
 
 Vibecoding je způsob vývoje softwaru, při kterém je část kódu generována umělou inteligencí.  
 Hlavním cílem je efektivnější tvorba programového kódu prostřednictvím spolupráce mezi vývojářem a nástroji umělé inteligence.
 
-![Example of adding code](pics/image.png)
-![Example of adding description](pics/image01.png)
 
 ## Způsob práce
 
 1. **Nastavení vývojového prostředí**  
-   Vývojář připraví pracovní prostředí, které zahrnuje nástroje s podporou umělé inteligence, jako jsou kódoví asistenti, generátory funkcí nebo automatické nástroje pro tvorbu dokumentace.¨
+   Vývojář připraví pracovní prostředí, které zahrnuje nástroje s podporou umělé inteligence, jako jsou kódoví asistenti, generátory funkcí nebo automatické nástroje pro tvorbu dokumentace.
 
 2. **Definování požadavků a kontextu**  
    Vývojář specifikuje cíle, požadavky a kontext úkolu, aby AI mohla generovat relevantní a smysluplné návrhy.
@@ -25,6 +24,7 @@ Hlavním cílem je efektivnější tvorba programového kódu prostřednictvím 
 
 
 ## Příklady nástrojů
+### <img src="pics/github_copilot_logo.png" alt="GitHub Copilot logo" align="right" width="100">
 
 ### 1. GitHub Copilot
 
@@ -37,6 +37,7 @@ AI asistent integrovaný do editorů jako Visual Studio Code, který nabízí n�
   - Bezplatný plán má omezený přístup k modelům a nízký počet požadavků.
   - Některé funkce jsou povinné a nelze je deaktivovat, což může být pro některé uživatele rušivé.
 
+### <img src="pics/tabnine_logo.png" alt="Tabnine logo" align="right" width="100">
 
 ### 2. Tabnine
 
@@ -50,6 +51,7 @@ AI doplněk pro více editorů, který generuje kódové fragmenty a pomáhá s 
   - Vyšší cena pro pokročilé plány ve srovnání s některými konkurenty.
 
 
+### <img src="pics/amazon_codewhisperer_logo.png" alt="Amazon CodeWhisperer logo" align="right" width="100">
 
 ### 3. Amazon CodeWhisperer
 
@@ -61,6 +63,8 @@ AI nástroj pro automatizované generování kódu zaměřený na cloudové slu�
 - **Nevýhody**:
   - Méně široká podpora IDE ve srovnání s některými konkurenty.
   - Některé funkce mohou vyžadovat pokročilé nastavení a konfiguraci.
+
+### <img src="pics/cursor_AI_logo.jpg" alt="Cursor AI logo" align="right" width="100">
 
 ### 4. Cursor AI
 
@@ -127,9 +131,18 @@ Vibecoding má odlišný dopad na seniorní a juniorní vývojáře vzhledem k j
 
 - Pro juniory může vibecoding představovat silnou podporu při učení a psaní kódu, protože AI může nabídnout návrhy a vzory řešení.
 - Vibecoding může zkrátit dobu potřebnou k dosažení produktivní úrovně, ale zároveň je důležité, aby si osvojili kritické myšlení a kontrolu kvality kódu.
-- Existuje riziko, že bez dostatečného dohledu a zkušeností budou akceptovat nevhodné nebo nekvalitní návrhy AI.
-
+- Existuje riziko, že bez dostatečného dohledu a zkušeností budou akceptovat nevhodné nebo nekvalitní návrhy AI. 
 
 ## Příklad
 
 Tenhle markdown soubor byl vibecodovaný
+
+## Názor
+
+Podle mého názoru je vibecoding velmi užitečný přístup k programování, který dokáže výrazně zefektivnit práci vývojáře. Nejde jen o pomoc při psaní jednoduchých a často se opakujících částí kódu, ale i o podporu při řešení složitějších úloh, kde může umělá inteligence nabídnout nečekaná a inspirativní řešení.
+
+U složitějších částí kódu je však nezbytné výsledky pečlivě otestovat a ověřit jejich logiku, aby vývojář skutečně porozuměl tomu, co AI vytvořila. Pouze tak lze zajistit, že generovaný kód bude nejen funkční, ale i udržitelný a bezpečný.
+
+Osobně používám GitHub Copilot a Tabnine ve svých projektech. Copilot mi nejvíce pomáhá při tvorbě komplexnějších částí aplikace, například při návrhu struktur nebo implementaci algoritmů – často navrhne celé bloky kódu, které pak jen upravím pro svůj konkrétní kontext. Tabnine naopak využívám pro rychlé doplňování kratších úseků, kde nechci, aby AI příliš „přemýšlela“ a generovala složitá řešení.
+
+Kombinace těchto nástrojů mi umožňuje pracovat rychleji, přitom si zachovávám plnou kontrolu nad výsledkem. Myslím si, že vibecoding není náhradou lidského myšlení, ale spíše rozšířením schopností vývojáře – podobně jako když zkušený programátor spolupracuje s pomocníkem, který dokáže okamžitě reagovat na jeho potřeby.
