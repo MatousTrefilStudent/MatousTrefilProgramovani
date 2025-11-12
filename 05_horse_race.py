@@ -1,5 +1,7 @@
 import random
 import os
+import time
+
 def horse_race(distance, horses):
     horse_positions =[]
 
@@ -27,6 +29,7 @@ class horse:
     def __init__(self, name, stepsPossible):
         self.name = name
         self.stepsPossible = stepsPossible
+
     def generate_step(self):
         return self.stepsPossible[random.randint(0, len(self.stepsPossible)-1)]
     
@@ -39,11 +42,40 @@ class horse:
         "Golden", "Star", "Iron", "Lucky", "Wind", "Dusty"
     ][random.randint(0,10)], [random.randint(0,2) for i in range(4)])
 
+    def generate_horses(numberOfHorses):
+        horses=[]
+        for i in range(numberOfHorses):
+            horses.append([horse.generate_horse(),0])
+        
+        return horses
+
+    def horse_race(distance, numberOfHorses):
+        horses = horse.generate_horses(numberOfHorses)
+        
+        while True:
+            time.sleep(0.1)
+            os.system('cls')
+            for i in range(len(horses)):
+                horses[i][1]+=horses[1][0].generate_step()
+                print("_"*int(horses[i][1]),horses[i][0].get_name(),"_"*int(distance - horses[i][1]-1-len(horses[i][0].get_name())))
+                if horses[i][1]>distance:
+                    print(horses[i][0].get_name()+" je vítěz.")
+                    return horses
+            print()
+                
+
+                
+
+            
 
 
 
 
-horse_race(100,2)
+
+
+for i in (horse.horse_race(100,3)):
+    print(i[0].get_name(),"\t",i[0].stepsPossible,"\t",i[1])
+
 
 """
 test
