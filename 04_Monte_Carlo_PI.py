@@ -14,7 +14,7 @@ def Monte_Carlo_PI(attempts):
 def Monte_Carlo_PI_displayed(attempts):
     root=tk.Tk()
     root.title()
-    root.geometry("550x700")
+    root.geometry("550x600")
 
     c=tk.Canvas(root,width=550,height=550)
 
@@ -26,7 +26,7 @@ def Monte_Carlo_PI_displayed(attempts):
 
     PI_Label = tk.Label(root)
 
-    PI_Label.place(x=250,y=600)
+    PI_Label.place(x=250,y=550)
 
     PI_Label.anchor("center")
 
@@ -49,7 +49,6 @@ def Monte_Carlo_PI_displayed(attempts):
         Attempts_Label.config(text="Attempts:" + str(i+1))
         Attempts_Label.pack()
 
-
         PI_Label.config(text="Current PI:" + f"{round(inside_circle*4/(i+1),5):.4f}")
         PI_Label.pack()
 
@@ -63,7 +62,7 @@ def Monte_Carlo_PI_displayed(attempts):
 
     c.mainloop()
 
-print(Monte_Carlo_PI(1000))
+#print(Monte_Carlo_PI(1000))
 
-Monte_Carlo_PI_displayed(1000)
+Monte_Carlo_PI_displayed(10000)
 
