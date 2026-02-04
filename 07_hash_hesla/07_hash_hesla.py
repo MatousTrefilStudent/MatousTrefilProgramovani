@@ -1,6 +1,7 @@
 import hashlib
 import os
-
+import time
+import keyboard
 
 
 
@@ -46,26 +47,78 @@ class selectionMenu:
         return self.list[self.index]
     
     def addIndex(self):
-        self.index=(self.index+1)%len(list)
+        self.index=(self.index+1)%len(self.list)
 
     def subtractIndex(self):
-        self.index=(self.index-1)%len(list)
+        self.index=(self.index-1)%len(self.list)
 
     def setIndex(self,number):
-        self.index=number%len(list)
+        self.index=number%len(self.list)
 
     def getList(self):
         temp=""
-        for element, index in enumerate(list):
-            if index!=index:
-                temp+=" "+element+" "
+        for index, element in enumerate(self.list):
+            if index!=self.index:
+                temp += f" {element} \n"
             else:
-                temp+=">"+element+"<"
-        
+                temp += f">{element}<\n"
+
+        return temp
+    
+"""https://rosettacode.org/wiki/Keyboard_input/Flush_the_keyboard_buffer"""
+"""def flush_input():
+    try:
+        import msvcrt
+        while msvcrt.kbhit():
+            msvcrt.getch()
+    except ImportError:
+        import sys, termios
+        termios.tcflush(sys.stdin, termios.TCIOFLUSH)
+
+
+def tabPressed(menu):
+    os.system("cls")
+    print(loggedInName)
+    menu.addIndex()
+    print(menu.getList())
+
+def enterPressed(menu):
+    os.system("cls")
+    input = menu.getChoice()
+    if input == "Vytvořit nového uživatele":
+        createNewUser()
+    elif input == "Přihlásit se":
+        loginUI()
+    flush_input()
+    
+def createNewUser():
+    print("Vytvořit nového uživatele")
+    flush_input()
+    name = input("Jméno:\t")
+    while isNameTaken(name):
+        name = input("Už takové jméno existuje, zvolte jiné:")
+    password = input("Password:\t")
+    newUser(name, password)
+    tabPressed(loggedOffMenu)
+    time.sleep(1)
+
+def loginUI():
+    print("Přihlásit se")
+    name = input("Jméno:\t")
+    password = input("Heslo:\t")
+    if login(name,password) == True:
+        loggedInName=name
+        keyboard.on_press_key("tab", lambda e: tabPressed(loggedInMenu))
+        keyboard.on_press_key("enter", lambda e: enterPressed(loggedInMenu))
 
 if __name__ == "__main__":
     loggedOffMenu=selectionMenu(["Vytvořit nového uživatele","Přihlásit se"],1)
     loggedInMenu=selectionMenu(["Změnit heslo","Změnit Jméno","Odhlásit se"],1)
+
+    keyboard.on_press_key("tab", lambda e: tabPressed(loggedOffMenu))
+    keyboard.on_press_key("enter", lambda e: enterPressed(loggedOffMenu))
+    loggedInName=""
+    tabPressed(loggedOffMenu)
+    
     while True:
-        print(loggedOffMenu.getList())
-        
+        pass"""
