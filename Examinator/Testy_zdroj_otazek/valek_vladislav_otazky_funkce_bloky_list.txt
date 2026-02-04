@@ -1,0 +1,22 @@
+Autor: Vladislav Válek
+
+
+Otázka: Jakým způsobem se v Pythonu odliší blok řádků kódu, který patří k jedné funkci?
+0; Blok je uzavřen do trojitých uvozovek.
+0; Každý řádek začíná otazníkem.
+1; Všechny řádky jsou odsazeny ideálně o 4 mezery.
+0; Celý blok je uzavřen do složených závorek.
+
+
+Otázka: Která z následujících možností představuje správnou syntaxi pro definici funkce v Pythonu? 
+0; definice funkce my_function(): 
+0; function my_function() {} 
+1; def my_function(): 
+0; fun my_function():
+
+
+Otázka: Jakým způsobem definujeme seznam v Pythonu? 
+1; Použitím hranatých závorek: [1, 2, 3] 
+0; Použitím kulatých závorek: (1, 2, 3) 
+0; Použitím složených závorek: {1, 2, 3} 
+0; Pomocí příkazu create list

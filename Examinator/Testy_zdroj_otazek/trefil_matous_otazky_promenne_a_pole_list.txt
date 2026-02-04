@@ -1,0 +1,22 @@
+Autor: Trefil Matouš
+
+
+Otázka: Jaký typ proměnné v Pythonu neexistuje?
+0; Integer
+1; Image
+0; String
+0; Boolean
+
+
+Otázka: Jaký je správný zápis pro vytvoření pole?
+0; arr pole = [element1, element2, element3]
+0; pole.newArray()
+0; pole = array.create("newArray")
+1; pole = [element1, element67, element3]
+
+
+Otázka: Jakým způsobem indexujeme(zjišťujeme hodnotu na indexu i) v poli?
+1; pole[i]
+0; pole.index(i)
+0; pole(i)
+0; pole, _ = enumerate(arr, i)

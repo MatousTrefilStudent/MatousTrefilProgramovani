@@ -1,0 +1,365 @@
+Autor: Chat gpt
+
+
+Otázka: Který z následujících typů dat je v Pythonu?
+0; Integer
+1; Character
+0; String
+0; Float
+
+
+Otázka: Jakým způsobem definujeme funkci v Pythonu?
+1; def nazev_funkce():
+0; function nazev_funkce():
+0; def() nazev_funkce
+0; function() nazev_funkce
+
+
+Otázka: Jakou hodnotu vrátí len("Python")?
+1; 6
+0; 5
+0; 7
+0; None
+
+
+Otázka: Jaký je výstup kódu print(2 ** 3)?
+0; 8
+1; 6
+0; 9
+0; 5
+
+
+Otázka: Co znamená if __name__ == "__main__": v Pythonu?
+0; Podmínka, která umožňuje spustit kód pouze při spuštění souboru přímo
+1; Podmínka pro kontrolu typu proměnné
+0; Kód pro import modulu
+0; Zajišťuje, že kód bude spuštěn na více vláknech
+
+
+Otázka: Jak vytvoříme prázdný seznam v Pythonu?
+1; seznam = []
+0; seznam = {}
+0; seznam = list()
+0; seznam = set()
+
+
+Otázka: Který z následujících zápisů nevrátí hodnotu v Pythonu?
+1; None
+0; 0
+0; False
+0; ""
+
+
+Otázka: Jaký datový typ je výstup type(3.14)?
+1; <class 'float'>
+0; <class 'int'>
+0; <class 'string'>
+0; <class 'complex'>
+
+
+Otázka: Co dělá funkce sorted() v Pythonu?
+1; Seřadí seznam
+0; Zkontroluje, zda je seznam seřazený
+0; Vytvoří nový seznam
+0; Otočí seznam
+
+
+Otázka: Co udělá tento kód? x = 3 / 2
+1; x bude 1.5
+0; x bude 1
+0; x bude 2
+0; Dojde k chybě
+
+
+Otázka: Jaké jsou dva hlavní způsoby cyklení přes seznamy v Pythonu?
+1; for a while
+0; foreach a do-while
+0; loop a endloop
+0; iterate a repeat
+
+
+Otázka: Jaký typ hodnoty je vrácen funkcí open() v Pythonu?
+0; Objekt typu file
+1; String
+0; Boolean
+0; None
+
+
+Otázka: Co je výstupem 5 > 3 and 2 < 4?
+1; True
+0; False
+0; None
+0; Error
+
+
+Otázka: Jaký je správný zápis pro importování modulu math?
+1; import math
+0; include math
+0; require math
+0; using math
+
+
+Otázka: Která funkce slouží k získání absolutní hodnoty čísla?
+1; abs()
+0; round()
+0; max()
+0; min()
+
+
+Otázka: Co je výstupem print("Hello"[1])?
+1; e
+0; H
+0; l
+0; o
+
+
+Otázka: Jaký je výstup print(3 + 4 * 2)?
+0; 11
+1; 14
+0; 17
+0; 10
+
+
+Otázka: Jak bys vytvořil prázdný slovník?
+1; slovnik = {}
+0; slovnik = []
+0; slovnik = dict()
+0; slovnik = set()
+
+
+Otázka: Jak bys v Pythonu přistupoval k hodnotám v slovníku?
+1; slovnik[key]
+0; slovnik(key)
+0; slovnik.get(key)
+0; slovnik[key]()
+
+
+Otázka: Jakým způsobem v Pythonu přidáš nový prvek na konec seznamu?
+1; seznam.append(prvek)
+0; seznam.add(prvek)
+0; seznam.insert(prvek)
+0; seznam.push(prvek)
+
+
+Otázka: Co znamená break v Pythonu?
+1; Ukončí běh cyklu
+0; Přerušuje podmínky
+0; Ukončuje funkci
+0; Vytváří novou podmínku
+
+
+Otázka: Co udělá tento kód: x = 10 a x += 5?
+1; x bude 15
+0; x bude 5
+0; x bude 10
+0; Dojde k chybě
+
+
+Otázka: Jaký je rozdíl mezi is a == v Pythonu?
+0; is porovnává identitu objektů, == porovnává hodnotu objektů
+1; is porovnává hodnotu, == identitu objektů
+0; Neexistuje rozdíl
+0; is je pro datové typy, == pro objekty
+
+
+Otázka: K čemu slouží funkce input()?
+1; Získá vstup od uživatele
+0; Slouží k výstupu na obrazovku
+0; Získá hodnotu z argumentu funkce
+0; Ukládá hodnotu do souboru
+
+
+Otázka: Jak bys napsal podmínku pro kontrolu, zda je proměnná x rovna nule?
+0; if x == 0:
+1; if x is 0:
+0; if x equals 0:
+0; if x = 0:
+
+
+Otázka: Jaká je hodnota bool([]) v Pythonu?
+1; False
+0; True
+0; None
+0; Error
+
+
+Otázka: Co znamená continue v Pythonu?
+1; Přeskočí aktuální iteraci cyklu a pokračuje na další
+0; Ukončí celý cyklus
+0; Přestane vykonávat funkci
+0; Vytvoří novou podmínku
+
+
+Otázka: Jakým způsobem vytvoříme novou třídu v Pythonu?
+1; class NazevTridy:
+0; new class NazevTridy:
+0; create class NazevTridy:
+0; def class NazevTridy:
+
+
+Otázka: Jaký je správný zápis pro spuštění skriptu v Pythonu z příkazové řádky?
+1; python script.py
+0; run script.py
+0; execute script.py
+0; start script.py
+
+
+Otázka: Jak vytvořit soubor pro zápis v Pythonu?
+1; open('soubor.txt', 'w')
+0; create('soubor.txt', 'w')
+0; write('soubor.txt', 'w')
+0; new('soubor.txt', 'w')
+
+
+Otázka: Co dělá funkce map() v Pythonu?
+1; Aplikuje funkci na každý prvek iterovatelného objektu
+0; Mění hodnoty v seznamu
+0; Vytváří nový seznam s transformovanými hodnotami
+0; Spojuje více seznamů
+
+
+Otázka: Jaký je výstup print("Hello" * 3)?
+1; HelloHelloHello
+0; Hello3
+0; 3Hello
+0; Error
+
+
+Otázka: Jaký je výstup print(4 + "5")?
+0; Error
+1; 9
+0; 45
+0; None
+
+
+Otázka: Jaký je výstup print(5 // 2)?
+1; 2
+0; 2.5
+0; 3
+0; 1
+
+
+Otázka: Co znamená self v metodách tříd v Pythonu?
+1; Odkazuje na instanci třídy
+0; Odkazuje na metodu třídy
+0; Je to název pro argumenty metody
+0; Používá se pro odkaz na rodičovskou třídu
+
+
+Otázka: Jaký je výstup print(10 % 3)?
+1; 1
+0; 2
+0; 3
+0; 10
+
+
+Otázka: Co dělá funkce join() v Pythonu?
+1; Spojí prvky seznamu do jednoho řetězce
+0; Připojí řetězec na začátek seznamu
+0; Rozdělí řetězec do seznamu
+0; Sloučí více řetězců do jednoho
+
+
+Otázka: Co dělá raise v Pythonu?
+1; Vyvolá výjimku
+0; Zastaví běh programu
+0; Ohlásí chybu do logu
+0; Vytvoří nový blok kódu
+
+
+Otázka: Jaký je výstup print("abc".upper())?
+0; abc
+1; ABC
+0; Abc
+0; aBc
+
+
+Otázka: Jak bys v Pythonu udělal kontrolu, zda seznam obsahuje daný prvek?
+1; if prvek in seznam:
+0; if seznam.contains(prvek):
+0; if prvek.exists(seznam):
+0; if seznam.has(prvek):
+
+
+Otázka: Co znamená except v konstrukci try-except?
+1; Definuje kód, který se provede, když dojde k výjimce
+0; Definuje blok kódu, který bude běžet před try
+0; Slouží k vytvoření nové výjimky
+0; Ukončuje běh programu
+
+
+Otázka: Jak přistupuješ k poslednímu prvku seznamu v Pythonu?
+1; seznam[-1]
+0; seznam[0]
+0; seznam[len(seznam)-1]
+0; seznam[last]
+
+
+Otázka: Co je to lambda funkce v Pythonu?
+1; Anonymní funkce definovaná pomocí klíčového slova lambda
+0; Funkce, která nemá návratovou hodnotu
+0; Funkce pro vytváření tříd
+0; Funkce pro definování seznamů
+
+
+Otázka: Jaký je výstup print([1, 2, 3] + [4, 5])?
+1; [1, 2, 3, 4, 5]
+0; [4, 5, 1, 2, 3]
+0; [5, 4, 3, 2, 1]
+0; [1, 2, 3, [4, 5]]
+
+
+Otázka: Jaký zápis je správný pro otevření souboru v režimu pouze pro čtení?
+1; open('soubor.txt', 'r')
+0; open('soubor.txt', 'w')
+0; open('soubor.txt', 'a')
+0; open('soubor.txt', 'rb')
+
+
+Otázka: Jakým způsobem bychom použili seznam v Pythonu jako zásobník?
+1; Používáme append() pro přidání a pop() pro odstranění posledního prvku
+0; Používáme push() pro přidání a pull() pro odstranění
+0; Používáme add() pro přidání a remove() pro odstranění
+0; Používáme insert() pro přidání a delete() pro odstranění
+
+
+Otázka: Jaký je výstup print("5" * 2)?
+0; 10
+1; 55
+0; 5
+0; Error
+
+
+Otázka: Jaký je správný zápis pro načtení souboru v Pythonu do proměnné?
+1; soubor = open('soubor.txt', 'r').read()
+0; soubor = read('soubor.txt')
+0; soubor = open('soubor.txt').read()
+0; soubor = file.read('soubor.txt')
+
+
+Otázka: Co znamená __init__ v Pythonu?
+1; Konstruktor třídy
+0; Funkce pro dědičnost
+0; Dekorátor pro metody
+0; Funkce pro dělení objektů
+
+
+Otázka: Co udělá isinstance(obj, třída)?
+1; Zkontroluje, zda je objekt typu třídy
+0; Vytvoří novou instanci třídy
+0; Zkontroluje, zda je třída podtřídou objektu
+0; Vytvoří podtřídu třídy
+
+
+Otázka: Co je to enumerate() v Pythonu?
+1; Funkce, která vrací index a hodnotu při iterování přes seznam
+0; Funkce pro seřazení seznamu
+0; Funkce pro přidání hodnoty na začátek seznamu
+0; Funkce pro vytvoření nového seznamu
+
+
+Otázka: Jaký je výstup print(2 * (3 + 4))?
+1; 14
+0; 16
+0; 7
+0; 10
