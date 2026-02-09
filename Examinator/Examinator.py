@@ -155,6 +155,6 @@ def newTest():
 
 if __name__ == "__main__":
     loadQuestions("Examinator/Testy_zdroj_otazek")
-
-
+    print(questions)
+    input()
     newTest()
