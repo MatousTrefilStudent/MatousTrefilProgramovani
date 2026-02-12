@@ -124,7 +124,7 @@ Chybně zodpovězeno:
 
 
     def saveResults(self, path):
-        if not os.path.exists(path) and os.path.isdir(path):
+        if not (os.path.exists(path) and os.path.isdir(path)):
             os.makedirs(path, exist_ok=True)
         with open(f"{path}{self.name.replace(" ","_")}_{datetime.now().strftime("%d%m%Y_%H%M%S")}_{len(self.questions)}_{self.grade}.txt","w",encoding="utf-8") as f:
                 f.write(f"""
