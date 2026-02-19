@@ -287,6 +287,13 @@ def time_consumption(funkce, n):
     Returns:
         Doba výpočtu v milisekundách jako float
     """
+    import time
+    start = time.perf_counter()
+    funkce(n)
+    time= time.perf_counter() - start
+
+    return(time)
+
     # TODO: Změřte čas pomocí time.perf_counter()
     # TODO: Vraťte výsledek v milisekundách (*1000)
     pass
@@ -305,6 +312,21 @@ def graph_time_consumption(max_n=150):
     Returns:
         None — zobrazí graf
     """
+
+    time_list_iteracion =[time_consumption(factorial, i) for i in range(1,max_n+1)]
+    if max_n>994:max_recursion = 994
+    else: max_recursion = max_n
+    time_list_recursion =[time_consumption(factorial_recurse, i) for i in range(1,max_recursion+1)]
+
+    plt.plot(range(1,max_n+1), time_list_iteracion, label='Iterativní', color='blue')
+    plt.plot(range(1,max_recursion+1), time_list_recursion, label='Rekurzivní', color='red')
+    plt.xlabel('n (velikost čísla)')
+    plt.ylabel('Čas (ms)')
+    plt.title('Porovnání výkonu iterativní a rekurzivní verze faktoriálu')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
     # TODO: Vytvořte prázdné seznamy time_list_iteracion a time_list_recursion
     # TODO: Vytvořte factorial_range = range(1, max_n + 1)
     # TODO: V cyklu pro každé n:
@@ -366,5 +388,12 @@ if __name__ == "__main__":
         print(f"Memo čas = {memo_cas*1_000_000:.0f} micro_s")
     print("------------------------------------------------\n")
 
+    for i in range(2,25):
+        print(f"i: {i}")
+        print(f"factorial: {time_consumption(factorial,i)}")
+        print(f"factorial_recurse: {time_consumption(factorial_recurse,i)}")
+        print(f"factorial_safe_input: {time_consumption(factorial_safe_input,i)}")
+        print(f"factorial_memo: {time_consumption(factorial_memo,i)}")
+
     # Časová náročnost výpočtů, srovnání metod rekurze a iterace
-    graph_time_consumption(600)
+    graph_time_consumption(4000)
