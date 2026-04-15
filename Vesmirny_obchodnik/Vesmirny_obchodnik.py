@@ -34,7 +34,7 @@ EVENTS ={
 def new_game():
     return {"day":1, 
           "credits":STARTING_CREDITS, 
-          "cargo":{"food": 4, "minerals": 0, "tech": 0}, 
+          "cargo":{"food": 0, "minerals": 0, "tech": 0}, 
           "location":"terra", 
           }
     
