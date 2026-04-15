@@ -1,0 +1,28 @@
+{
+  "day": 1,
+  "gold": 95,
+  "plots": [
+    {
+      "crop": "wheat",
+      "days_grown": 0,
+      "ready": false
+    },
+    {
+      "crop": null,
+      "days_grown": 0,
+      "ready": false
+    },
+    {
+      "crop": null,
+      "days_grown": 0,
+      "ready": false
+    },
+    {
+      "crop": null,
+      "days_grown": 0,
+      "ready": false
+    }
+  ],
+  "inventory": {},
+  "weather_today": "sunny"
+}
