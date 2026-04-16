@@ -103,6 +103,7 @@ library[0].borrow()
 library[0].borrow()  # Pokus o vypůjčení již vypůjčené knihy
 library[0].return_book()
 library[0].return_book()  # Pokus o vrácení již dostupné knihy
+library[3].borrow() 
 
 # Znovu vypíšeme knihovnu po změnách
 print("\nAktualizovaný seznam knih v knihovně:")
