@@ -36,8 +36,7 @@ def verify_conversions(n: int) -> bool:
     return (hex(n) == "0x"+decimal_to_hexadecimal(n) and
             bin(n) == "0b"+decimal_to_binary(n))
 
-print(general_conversion("111",2,10))
-print(general_conversion("1000011",2,10))
+
 if __name__ == "__main__":
     # PRO TESTOVÁNÍ: Odkomentujte postupně po implementaci jednotlivých částí.
     print(decimal_to_binary(255))
