@@ -1,3 +1,4 @@
+import csv
 # -*- coding: utf-8 -*-
 # Příliš žluťoučký kůň úpěl ďábelské ódy - testovací pangram
 """_summary_
@@ -83,7 +84,23 @@ class Book:
     def __str__(self):
         return f"{self.year} - {self.author} | Stav: {"Dostupná"*self.available}{"Nedostupná"*(not self.available)}"
 
+    @classmethod
+    def loadFromCSV(cls, data):
+        plot =cls()
+        plot.title = data["title"]
+        plot.author = data["author"]
+        plot.year = data["year"]
+        return plot
 
+
+"""with open("knihy.csv", newline='', encoding="utf-8") as f:
+    reader = csv.DictReader(f)
+    print(reader)
+    for row in reader:
+        print(row)
+        print(row["Title"], row["Author"], row["Year"])
+        test_book=Book.loadFromCSV(row)  
+        print(test_book)"""
 
 # Seznam knih v knihovně
 library = [
