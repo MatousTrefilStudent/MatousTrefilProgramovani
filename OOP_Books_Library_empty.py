@@ -86,21 +86,19 @@ class Book:
 
     @classmethod
     def loadFromCSV(cls, data):
-        plot =cls()
-        plot.title = data["title"]
-        plot.author = data["author"]
-        plot.year = data["year"]
-        return plot
+        return cls (data["title"],
+         data["author"],
+         int(data["year"]))
 
 
-"""with open("knihy.csv", newline='', encoding="utf-8") as f:
+with open("knihy.csv", newline='', encoding="utf-8") as f:
     reader = csv.DictReader(f)
     print(reader)
     for row in reader:
         print(row)
-        print(row["Title"], row["Author"], row["Year"])
+        print(row["title"])
         test_book=Book.loadFromCSV(row)  
-        print(test_book)"""
+        print(test_book)
 
 # Seznam knih v knihovně
 library = [
