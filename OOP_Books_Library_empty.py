@@ -1,4 +1,5 @@
 import csv
+import json
 # -*- coding: utf-8 -*-
 # Příliš žluťoučký kůň úpěl ďábelské ódy - testovací pangram
 """_summary_
@@ -82,44 +83,178 @@ class Book:
             self.available=True
 
     def __str__(self):
-        return f"{self.year} - {self.author} | Stav: {"Dostupná"*self.available}{"Nedostupná"*(not self.available)}"
+        return f"{self.title} | {self.year} | {self.author} | Stav: {"Dostupná"*self.available}{"Nedostupná"*(not self.available)}"
+
+    @staticmethod
+    def is_valid_year(year):
+        try:
+            int(year)
+            return True
+        except (ValueError, TypeError):
+            return False
 
     @classmethod
-    def loadFromCSV(cls, data):
+    def load_from_CSV(cls, data):
         return cls (data["title"],
          data["author"],
          int(data["year"]))
+    
+    @classmethod
+    def from_string(cls, string):
+        return cls (string.split(";")[0],string.split(";")[1],string.split(";")[2])
+    
+    def to_json(self):
+        return {"title" : self.title,
+                "author": self.author,
+                "year"  : self.year}
+"""---
+
+## Část 2 – Dědičnost: podtřídy `Ebook` a `AudioBook`
+
+Vytvoř dvě podtřídy dědící z `Book`:
+- `Ebook` – přidá atribut `file_format` (např. `"PDF"`, `"EPUB"`, `"MOBI"`).
+- `AudioBook` – přidá atribut `duration` (délka audioknihy v minutách).
+- Obě třídy přepíší metodu `__str__()`, aby zobrazovaly i nové atributy.
+
+---"""
+class Ebook(Book):
+    def __init__(self, title, author, year, fileFormat):
+        super().__init__(title, author, year)
+        self.fileFormat=fileFormat
+
+    def __str__(self):
+        return f"{super().__str__()} | Formát souboru: {self.fileFormat}"
+    
+    def to_json(self):
+        return {"title" : self.title,
+                "author": self.author,
+                "year"  : self.year,
+                "file format": self.fileFormat}
+    
+class AudioBook(Ebook):
+    def __init__(self, title, author, year, fileFormat, duration):
+        super().__init__(title, author, year, fileFormat)
+        self.duration=duration
+
+    def __str__(self):
+        return f"{super().__str__()} | Délka trvání: {self.duration}"
+    
+    def to_json(self):
+        return {"title" : self.title,
+                "author": self.author,
+                "year"  : self.year,
+                "file format": self.fileFormat,
+                "duration":self.duration}
+    
+"""---
+
+## Část 3 – Kompozice: třída `Library`
+
+Místo prostého seznamu vytvoř třídu `Library`, která bude obsahovat seznam knih.
+Přidej metody:
+- `add_book(book)` – přidá knihu do knihovny.
+- `remove_book(title)` – odstraní knihu podle názvu.
+- `list_books()` – vypíše všechny knihy v knihovně.
+
+---"""
+
+class Library():
+    def __init__(self, name):
+        self.name=name
+        self.books=[]
+    
+    def add_book(self,book):
+        self.books.append(book)
+
+    def remove_book(self, bookTitle):
+        for i in self.books:
+            if i.title==bookTitle:
+                self.books.pop(self.books.index(i))
+
+    def list_books(self):
+        for i in self.books:
+            print(i) 
+    """---
+
+    ## Část 4 – Ukládání a načítání dat (JSON)
+
+    Rozšiř třídu `Library` o metody:
+    - `save_to_file(filename)` – uloží seznam knih do JSON souboru.
+    - `load_from_file(filename)` – načte seznam knih z JSON souboru.
+
+    ---"""
+    def save_to_file(self, filename):
+        json_books=[i.to_json() for i in self.books]
+        with open(filename, "w", encoding="utf-8") as f:
+            json.dump(json_books, f,ensure_ascii=False, indent=2)
+
+    def load_from_file(self, filename):
+        with open(filename, "r", encoding="utf-8") as f:
+            json_books = json.load(f)
+        print(json_books)
+
+if __name__ == "__main__":
+    
+
+    """with open("knihy.csv", newline='', encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        print(reader)
+        for row in reader:
+            test_book=Book.load_from_CSV(row)  
+            print(test_book)
+
+    # Seznam knih v knihovně
+    library = [
+        Book("1984", "George Orwell", 1949),
+        Book("To Kill a Mockingbird", "Harper Lee", 1960),
+        Book("Mistr a Markétka", "Michail Bulgakov", 1967),
+        Book("Malý princ", "Antoine de Saint-Exupéry", 1943)
+    ]
+
+    # Výpis knih v knihovně
+    print("\nSeznam knih v knihovně:")
+    for i in library: print(i)
+
+    # Simulace vypůjčení a vrácení knihy
+    print("\n--- Test vypůjčení a vrácení knih ---\n")
+    library[0].borrow()
+    library[0].borrow()  # Pokus o vypůjčení již vypůjčené knihy
+    library[0].return_book()
+    library[0].return_book()  # Pokus o vrácení již dostupné knihy
+    library[3].borrow() 
+
+    # Znovu vypíšeme knihovnu po změnách
+    print("\nAktualizovaný seznam knih v knihovně:")
+    for i in library: print(i)"""
 
 
-with open("knihy.csv", newline='', encoding="utf-8") as f:
-    reader = csv.DictReader(f)
-    print(reader)
-    for row in reader:
-        print(row)
-        print(row["title"])
-        test_book=Book.loadFromCSV(row)  
-        print(test_book)
+    # =============================================================================
+    # Testovací kód – spusť po doplnění implementace výše
+    # =============================================================================
 
-# Seznam knih v knihovně
-library = [
-    Book("1984", "George Orwell", 1949),
-    Book("To Kill a Mockingbird", "Harper Lee", 1960),
-    Book("Mistr a Markétka", "Michail Bulgakov", 1967),
-    Book("Malý princ", "Antoine de Saint-Exupéry", 1943)
-]
+    # --- Část 1: Statické metody a metody třídy ---
+    print("=== Test statických metod a metod třídy ===")
+    print(f"Je rok 1984 validní? {Book.is_valid_year(1984)}")
+    print(f"Je rok 1200 validní? {Book.is_valid_year(1200)}")
+    tolkien = Book.from_string("Pán prstenů;J. R. R. Tolkien;1954")
+    print(f"Kniha z řetězce: {tolkien}")
 
-# Výpis knih v knihovně
-print("\nSeznam knih v knihovně:")
-for i in library: print(i)
+    # --- Část 2: Dědičnost ---
+    print("\n=== Test dědičnosti ===")
+    ebook = Ebook("Výzkum vesmíru", "Carl Sagan", 1980, "PDF")
+    audiobook = AudioBook("Harry Potter a kámen mudrců", "J. K. Rowling",  1997, "mp3",498)
+    print(ebook)
+    print(audiobook)
 
-# Simulace vypůjčení a vrácení knihy
-print("\n--- Test vypůjčení a vrácení knih ---\n")
-library[0].borrow()
-library[0].borrow()  # Pokus o vypůjčení již vypůjčené knihy
-library[0].return_book()
-library[0].return_book()  # Pokus o vrácení již dostupné knihy
-library[3].borrow() 
+    # --- Část 3: Třída Library ---
+    print("\n=== Test třídy Library ===")
+    library = Library("Městská knihovna")
+    library.add_book(Book("1984", "George Orwell", 1949))
+    library.add_book(ebook)
+    library.add_book(audiobook)
+    library.list_books()
+    library.remove_book("1984")
+    library.list_books()
 
-# Znovu vypíšeme knihovnu po změnách
-print("\nAktualizovaný seznam knih v knihovně:")
-for i in library: print(i)
+    library.save_to_file("knihovnička")
+    library.load_from_file("knihovnička")
