@@ -1,5 +1,6 @@
 import csv
 import json
+import os
 # -*- coding: utf-8 -*-
 # Příliš žluťoučký kůň úpěl ďábelské ódy - testovací pangram
 """_summary_
@@ -62,11 +63,11 @@ class Book:
         return_book(): Vrátí knihu zpět jako dostupnou
     """
 
-    def __init__(self, title: str, author: str, year: int):
+    def __init__(self, title: str, author: str, year: int, available=True):
         self.title=title
         self.author=author
         self.year=year
-        self.available=True
+        self.available=available
         
     def borrow(self):
         if not self.available:
@@ -106,7 +107,8 @@ class Book:
     def to_json(self):
         return {"title" : self.title,
                 "author": self.author,
-                "year"  : self.year}
+                "year"  : self.year,
+                "available": self.available}
 """---
 
 ## Část 2 – Dědičnost: podtřídy `Ebook` a `AudioBook`
@@ -118,8 +120,8 @@ Vytvoř dvě podtřídy dědící z `Book`:
 
 ---"""
 class Ebook(Book):
-    def __init__(self, title, author, year, fileFormat):
-        super().__init__(title, author, year)
+    def __init__(self, title, author, year, fileFormat, available = True):
+        super().__init__(title, author, year, available)
         self.fileFormat=fileFormat
 
     def __str__(self):
@@ -129,11 +131,12 @@ class Ebook(Book):
         return {"title" : self.title,
                 "author": self.author,
                 "year"  : self.year,
-                "file format": self.fileFormat}
+                "file format": self.fileFormat,
+                "available": self.available}
     
 class AudioBook(Ebook):
-    def __init__(self, title, author, year, fileFormat, duration):
-        super().__init__(title, author, year, fileFormat)
+    def __init__(self, title, author, year, fileFormat, duration, available = True):
+        super().__init__(title, author, year, fileFormat, available)
         self.duration=duration
 
     def __str__(self):
@@ -144,7 +147,8 @@ class AudioBook(Ebook):
                 "author": self.author,
                 "year"  : self.year,
                 "file format": self.fileFormat,
-                "duration":self.duration}
+                "duration":self.duration,
+                "available": self.available}
     
 """---
 
@@ -165,6 +169,14 @@ class Library():
     
     def add_book(self,book):
         self.books.append(book)
+
+    def add_book_from_json(self,json):
+        if "duration" in json:
+            self.books.append(AudioBook(json["title"],json["author"],json["year"],json["file format"],json["duration"],available=json["available"]))
+        elif "file format" in json:
+            self.books.append(Ebook(json["title"],json["author"],json["year"],json["file format"],available=json["available"]))
+        else:
+            self.books.append(Book(json["title"],json["author"],json["year"],available=json["available"]))
 
     def remove_book(self, bookTitle):
         for i in self.books:
@@ -187,11 +199,15 @@ class Library():
         json_books=[i.to_json() for i in self.books]
         with open(filename, "w", encoding="utf-8") as f:
             json.dump(json_books, f,ensure_ascii=False, indent=2)
+        f.close()
 
     def load_from_file(self, filename):
+        
         with open(filename, "r", encoding="utf-8") as f:
             json_books = json.load(f)
-        print(json_books)
+        self.books=[]
+        for i in json_books:
+            self.add_book_from_json(i)
 
 if __name__ == "__main__":
     
@@ -228,7 +244,7 @@ if __name__ == "__main__":
     for i in library: print(i)"""
 
 
-    # =============================================================================
+    """# =============================================================================
     # Testovací kód – spusť po doplnění implementace výše
     # =============================================================================
 
@@ -257,4 +273,65 @@ if __name__ == "__main__":
     library.list_books()
 
     library.save_to_file("knihovnička")
+    library.load_from_file("knihovnička")"""
+
+
+
+    library = Library("Městská knihovna")
+
+    if not os.path.isfile("knihovnička"):
+        library.save_to_file("knihovnička")
     library.load_from_file("knihovnička")
+
+
+    while True:
+        print(
+"""\n\n[1] Zobrazit knihy
+[2] Přidat knihu
+[3] Vypůjčit knihu
+[4] Vrátit knihu
+[5] Uložit a ukončit program""")
+        entry = input("Číslo akce, kterou chcete provést:")
+        if "1" in entry:
+            library.list_books()
+
+        elif "2" in entry:
+            print("Informace o knížce, kterou chceš přidat:")
+            title=input("Jméno knížky:")
+            author=input("Autor knížky:")
+            while True:
+                try:
+                    year = int(input("Rok vydání: "))
+                    break
+                except ValueError:
+                    print("Musíš vložit číslo")
+            file_format = input("Typ souboru(pokud není nechte prázdné):")
+            duration = input("Doba trvání(pokud není nechte prázdné):")
+            if duration.replace(" ","")=="" and file_format.replace(" ","")=="":
+                library.add_book(Book(title,author,year))
+            elif duration.replace(" ","")=="" and file_format.replace(" ","")!="":
+                library.add_book(Ebook(title,author,year,file_format))
+            elif duration.replace(" ","")!="" and file_format.replace(" ","")!="":
+                library.add_book(AudioBook(title,author,year,file_format,duration))
+            print("Kniha úspěšně přidána")
+        
+        elif "3" in entry:
+            title = input("Jméno knížky, kterou si chceš pučit:")
+            for i in library.books:
+                if i.title==title:
+                    i.borrow()
+                    break
+            
+        elif "4" in entry:
+            title = input("Jméno knížky, kterou chceš vrátit:")
+            for i in library.books:
+                if i.title==title:
+                    i.return_book()
+                    break
+            
+        elif "5" in entry:
+            library.save_to_file("knihovnička")
+            print("saved")
+            break
+
+        
