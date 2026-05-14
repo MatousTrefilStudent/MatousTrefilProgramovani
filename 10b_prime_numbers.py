@@ -302,6 +302,7 @@ def prime_factorization(n: int) -> List[int]:
     return factors
 
 
+
 ##############################################################
 ### ÚKOLY K PROCVIČENÍ (bonusové návrhy)
 ##############################################################

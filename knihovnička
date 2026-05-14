@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Výzkum vesmíru",
+    "author": "Carl Sagan",
+    "year": 1980,
+    "file format": "PDF",
+    "available": false
+  },
+  {
+    "title": "Harry Potter a kámen mudrců",
+    "author": "J. K. Rowling",
+    "year": 1997,
+    "file format": "mp3",
+    "duration": 498,
+    "available": true
+  },
+  {
+    "title": "Čítanka",
+    "author": "ČTK",
+    "year": 6767,
+    "available": true
+  },
+  {
+    "title": "Učíme se počítat",
+    "author": "ČTK",
+    "year": 1991,
+    "available": true
+  }
+]

@@ -156,7 +156,9 @@ def main():
                     if event_roll < cumulative_prob:
                         print(f"\nNáhodná událost: {event['name']} - {event['effect']}")
                         if event_key == "pirates":
-                            game["credits"] = max(0, game["credits"] - PIRATE_LOSS)
+                            game["credits"] = game["credits"] - PIRATE_LOSS
+                            if game["credits"]<0:
+                                game["credits"]=0
                         elif event_key == "asteroid":
                             free_goods = random.randint(1, 3)
                             good_key = random.choice(list(GOODS.keys()))
